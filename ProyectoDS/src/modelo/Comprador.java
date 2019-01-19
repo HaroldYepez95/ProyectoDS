@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Harold
  */
-public class Comprador extends Estudiante{
+public class Comprador extends Estudiante implements IBuscable{
     private int idComprador;
     private Double saldoDisponible;
     private CompraSaldo compraSaldo;
@@ -70,6 +70,16 @@ public class Comprador extends Estudiante{
     }
     public void comprarSaldo(){
         
+    }
+
+    @Override
+    public void realizarBusquedaSencilla() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void realizarBusquedaAvanzada() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

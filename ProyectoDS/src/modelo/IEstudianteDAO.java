@@ -9,6 +9,9 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public interface IEstudianteDAO {
+    public void create(Estudiante estudiante) throws Exception;
+    public void read() throws Exception;
+    public void delete() throws Exception;
+    public void update() throws Exception;
 }

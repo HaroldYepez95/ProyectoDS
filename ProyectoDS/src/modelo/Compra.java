@@ -5,26 +5,30 @@
  */
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  *
  * @author Harold
  */
-public class Compra {
+public class Compra extends Operacion{
     private int idCompra;
     private ArrayList<ProductoCompra> productos;
     private String estado;
     private Pago pago;
     private Entrega entrega;
 
-    public Compra(int idCompra, ArrayList<ProductoCompra> productos, String estado, Pago pago, Entrega entrega) {
+    public Compra(int idCompra, ArrayList<ProductoCompra> productos, String estado, Pago pago, Entrega entrega, int idOperacion, int idVendedor, int idComprador, LocalDate fechaHora) {
+        super(idOperacion, idVendedor, idComprador, fechaHora);
         this.idCompra = idCompra;
         this.productos = productos;
         this.estado = estado;
         this.pago = pago;
         this.entrega = entrega;
     }
+
+    
 
     public int getIdCompra() {
         return idCompra;

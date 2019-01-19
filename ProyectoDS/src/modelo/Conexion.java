@@ -9,6 +9,6 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public class Conexion {
+    
 }

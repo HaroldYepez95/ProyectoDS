@@ -9,6 +9,9 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public class FabricaConstructor {
+    
+    public FabricaAbstracta getFabrica(String fabrica){
+        return new PersonaFabrica();
+    }
 }

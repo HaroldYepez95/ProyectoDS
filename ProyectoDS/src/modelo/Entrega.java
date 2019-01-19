@@ -5,20 +5,25 @@
  */
 package modelo;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Harold
  */
-public class Entrega {
+public class Entrega extends Operacion{
     private int idEntrega;
     private String localizacionQuiosco;
     private String Observacion;
 
-    public Entrega(int idEntrega, String localizacionQuiosco, String Observacion) {
+    public Entrega(int idEntrega, String localizacionQuiosco, String Observacion, int idOperacion, int idVendedor, int idComprador, LocalDate fechaHora) {
+        super(idOperacion, idVendedor, idComprador, fechaHora);
         this.idEntrega = idEntrega;
         this.localizacionQuiosco = localizacionQuiosco;
         this.Observacion = Observacion;
     }
+
+    
 
     public int getIdEntrega() {
         return idEntrega;

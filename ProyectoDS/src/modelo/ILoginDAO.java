@@ -9,6 +9,6 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public interface ILoginDAO {
+    public boolean autenticarEstudiante(String usuario, String password) throws Exception;
 }

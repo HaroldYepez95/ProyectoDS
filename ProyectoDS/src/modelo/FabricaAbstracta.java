@@ -9,6 +9,7 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public interface FabricaAbstracta {
+    public Persona getPersona();
+    public Operacion getOperacion();
 }

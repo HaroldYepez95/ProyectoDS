@@ -9,6 +9,7 @@ package modelo;
  *
  * @author Harold
  */
-public interface Pago {
-    public void pagar();
+public interface IBuscable {
+    public void realizarBusquedaSencilla();
+    public void realizarBusquedaAvanzada();
 }
