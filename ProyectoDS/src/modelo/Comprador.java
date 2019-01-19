@@ -29,9 +29,47 @@ public class Comprador extends Estudiante{
         super(matricula, usuario, contraseña, rol, cedula, nombres, apellidos, tieneWhatsApp, telefonoActual, correos, domicilios, telefonosSecundarios);
     }
 
-    
+    public int getIdComprador() {
+        return idComprador;
+    }
 
-    
-    
+    public void setIdComprador(int idComprador) {
+        this.idComprador = idComprador;
+    }
+
+    public Double getSaldoDisponible() {
+        return saldoDisponible;
+    }
+
+    public void setSaldoDisponible(Double saldoDisponible) {
+        this.saldoDisponible = saldoDisponible;
+    }
+
+    public CompraSaldo getCompraSaldo() {
+        return compraSaldo;
+    }
+
+    public void setCompraSaldo(CompraSaldo compraSaldo) {
+        this.compraSaldo = compraSaldo;
+    }
+
+    public ArrayList<Producto> getMisProductos() {
+        return misProductos;
+    }
+
+    public void setMisProductos(ArrayList<Producto> misProductos) {
+        this.misProductos = misProductos;
+    }
+
+    public void calificarVendedor(){
+        
+    }
+
+    public void calificarProducto(){
+        
+    }
+    public void comprarSaldo(){
+        
+    }
     
 }
