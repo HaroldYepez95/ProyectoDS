@@ -17,33 +17,31 @@ import javafx.stage.Stage;
  *
  * @author Tonny
  */
-public class Pag_AdminBuscar {
+public class Pag_vendedorVentas {
     private Label titulo;
     private VBox contenedor;
-    private Button btnSimple;
-    private Button btnAvanzada;
-    
+    private Button btnVentasPendientes;
+    private Button btnResumen;
     private Button btnAtras;
-    
     public void Contenido(){
         titulo=new Label("Busqueda");
-        btnSimple=new Button("Simple");
-        btnAvanzada=new Button("Avanzada");
+        btnVentasPendientes=new Button("Ventas Pendientes");
+        btnResumen=new Button("Resumen de Ventas");
         btnAtras=new Button("Atras");
         
         contenedor=new VBox();
-        contenedor.getChildren().addAll(titulo,btnSimple,btnAvanzada,btnAtras);
+        contenedor.getChildren().addAll(titulo,btnVentasPendientes,btnResumen,btnAtras);
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(20);
         btnAtras.setOnAction((e) -> {
             Button b = (Button) e.getSource();
             Scene s = b.getScene();
-            s.setRoot(new Pag_Admin().getRoot() );
-            ((Stage)s.getWindow()).setTitle("Administrador");
+            s.setRoot(new Pag_Vendedor().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Vendedor");
         });
 
     }
-    public Pag_AdminBuscar(){
+    public Pag_vendedorVentas(){
          Contenido();
     }
     public Pane getRoot(){

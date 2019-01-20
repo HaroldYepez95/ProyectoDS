@@ -17,22 +17,22 @@ import javafx.stage.Stage;
  *
  * @author Tonny
  */
-public class Pag_AdminBuscar {
+public class Pag_AdminCompras {
     private Label titulo;
     private VBox contenedor;
-    private Button btnSimple;
-    private Button btnAvanzada;
-    
+    private Button btnPendiente;
+    private Button btnAnuladas;
+    private Button btnExitosas;
     private Button btnAtras;
-    
     public void Contenido(){
-        titulo=new Label("Busqueda");
-        btnSimple=new Button("Simple");
-        btnAvanzada=new Button("Avanzada");
+        titulo=new Label("Compras");
+        btnPendiente=new Button("Pendientes a Entregar");
+        btnAnuladas=new Button("Anuladas");
+        btnExitosas=new Button("Exitosas");
         btnAtras=new Button("Atras");
         
         contenedor=new VBox();
-        contenedor.getChildren().addAll(titulo,btnSimple,btnAvanzada,btnAtras);
+        contenedor.getChildren().addAll(titulo,btnPendiente,btnAnuladas,btnExitosas,btnAtras);
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(20);
         btnAtras.setOnAction((e) -> {
@@ -43,7 +43,7 @@ public class Pag_AdminBuscar {
         });
 
     }
-    public Pag_AdminBuscar(){
+    public Pag_AdminCompras(){
          Contenido();
     }
     public Pane getRoot(){

@@ -26,10 +26,14 @@ public class DSProject extends Application {
        // Pag_Inicio inicio=new Pag_Inicio();
        
        // Pane contenedor2=inicio.getRoot();
-       Pag_Admin menuAdmin=new Pag_Admin();
-       Pane contenedor3=menuAdmin.getRoot();
-        
-        Scene scene = new Scene(contenedor3, 500, 550);
+       //Pag_Admin menuAdmin=new Pag_Admin();
+       //Pane contenedor3=menuAdmin.getRoot();
+       //Pag_AdminBuscar menuAdminBusqueda=new Pag_AdminBuscar();
+      // Pag_AdminCompras menuAdminCompra=new Pag_AdminCompras();
+       //Pane contenedor5=menuAdminCompra.getRoot();
+        Pag_Vendedor menuVendedor=new Pag_Vendedor();
+        Pane contenedor6=menuVendedor.getRoot();
+        Scene scene = new Scene(contenedor6, 500, 550);
         
         primaryStage.setTitle("Menu");
         //StackPane root= new StackPane();

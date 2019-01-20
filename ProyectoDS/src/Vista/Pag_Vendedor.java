@@ -17,25 +17,20 @@ import javafx.stage.Stage;
  *
  * @author Tonny
  */
-public class Pag_Admin {
+public class Pag_Vendedor {
     private Label lbtitulo;
     private VBox contenedor;
-    private Button btnAdminUsuario;
-    private Button btnBuscar;
-    private Button btnCompras;
-    private Button btnAdminProducto;
+    private Button btnMiVenta;
+    private Button btnMiProducto;
     private Button btnCerrar;
-    
     public void Contenido(){
-        lbtitulo=new Label("Administrador");
-        btnAdminUsuario=new Button("Administrar Usuario");
-        btnBuscar=new Button("Buscar");
-        btnCompras=new Button("Ver Compras");
-        btnAdminProducto=new Button("Administrar Productos");
+        lbtitulo=new Label("Vendedor");
+        btnMiVenta=new Button("Mis Ventas");
+        btnMiProducto=new Button("Mis Productos");
         btnCerrar=new Button("Cerrar");
         
         contenedor=new VBox();
-        contenedor.getChildren().addAll(lbtitulo,btnAdminUsuario,btnBuscar,btnCompras,btnAdminProducto,btnCerrar);
+        contenedor.getChildren().addAll(lbtitulo,btnMiVenta,btnMiProducto,btnCerrar);
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(20);
          btnCerrar.setOnAction((e) -> {
@@ -44,25 +39,18 @@ public class Pag_Admin {
             s.setRoot(new Pag_Inicio().getRoot() );
             ((Stage)s.getWindow()).setTitle("Menu");
         });
-         btnBuscar.setOnAction((e) -> {
+          btnMiVenta.setOnAction((e) -> {
             Button b = (Button) e.getSource();
             Scene s = b.getScene();
-            s.setRoot(new Pag_AdminBuscar().getRoot() );
-            ((Stage)s.getWindow()).setTitle("Busqueda Producto");
+            s.setRoot(new Pag_vendedorVentas().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Mis Ventas");
         });
-         btnCompras.setOnAction((e) -> {
-            Button b = (Button) e.getSource();
-            Scene s = b.getScene();
-            s.setRoot(new Pag_AdminCompras().getRoot() );
-            ((Stage)s.getWindow()).setTitle("Compras");
-        });
-        
+         
     }
-    public Pag_Admin(){
+     public Pag_Vendedor(){
          Contenido();
     }
     public Pane getRoot(){
         return contenedor;
     }
-    
 }
