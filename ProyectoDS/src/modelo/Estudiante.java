@@ -25,6 +25,57 @@ public abstract class Estudiante extends Persona{
         this.rol = rol;
     }
 
-    
-    
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    public void iniciarSesion(){
+        
+    }
+    public void cerrarSesion(){
+        
+    }
+    public ArrayList<Compra> obtenerComprasPendientes(){
+        ArrayList<Compra> comprasPendientes = new ArrayList<Compra>();
+        return comprasPendientes; 
+    }
+    public ArrayList<Compra> obtenerComprasExitosas(){
+        ArrayList<Compra> comprasExitosas = new ArrayList<Compra>();
+        return comprasExitosas; 
+    }
+    public ArrayList<Compra> obtenerComprasAnuladas(){
+        ArrayList<Compra> comprasAnuladas = new ArrayList<Compra>();
+        return comprasAnuladas; 
+    }
+    public ArrayList<Compra> obtenerResumenCompras(){
+        ArrayList<Compra> resumenCompras = new ArrayList<Compra>();
+        return resumenCompras; 
+    }
 }
