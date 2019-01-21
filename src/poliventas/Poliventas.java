@@ -10,6 +10,7 @@ import PatronDAO.Compra.CompraDAOImpl;
 import PatronDAO.Producto.ProductoDAOImpl;
 import PatronSingleton.Conexion;
 import Vista.Pag_Comprador;
+import Vista.Pag_Inicio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -27,8 +28,8 @@ public class Poliventas extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       //Pag_Inicio inicio=new Pag_Inicio();
-       //Pane contenedor2=inicio.getRoot();
+       Pag_Inicio inicio=new Pag_Inicio();
+       Pane contenedor2=inicio.getRoot();
        
        //Pag_Admin menuAdmin=new Pag_Admin();
        //Pane contenedor3=menuAdmin.getRoot();
@@ -40,10 +41,10 @@ public class Poliventas extends Application {
        //Pag_Vendedor menuVendedor=new Pag_Vendedor();  
        //Pane contenedor6=menuVendedor.getRoot();
        
-        Pag_Comprador menuComprador=new Pag_Comprador();
-        Pane contenedor7=menuComprador.getRoot();
+        //Pag_Comprador menuComprador=new Pag_Comprador();
+        //Pane contenedor7=menuComprador.getRoot();
         
-        Scene scene = new Scene(contenedor7, 500, 550);
+        Scene scene = new Scene(contenedor2, 500, 550);
         
         stage.setTitle("Menu");
         //StackPane root= new StackPane();

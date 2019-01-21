@@ -6,12 +6,14 @@
 package Vista;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  *
@@ -25,6 +27,9 @@ public class Pag_Inicio {
     private TextField txtContrasena;
     private Button btn_Inicio;
     private Button btn_Salir;
+    private Button btn_Comprador;
+    private Button btn_Vendedor;
+    private Button btn_Administrador;
     private HBox cajaUsuario;
     private HBox cajaContrasena;
     private VBox cajaGeneral;
@@ -51,14 +56,40 @@ public class Pag_Inicio {
         iniciar=new Button("Iniciar Sesion");
         iniciar.setAlignment(Pos.CENTER);
         
+        btn_Comprador=new Button("Comprador");
+        iniciar.setAlignment(Pos.CENTER);
+        
+        btn_Vendedor=new Button("Vendedor");
+        iniciar.setAlignment(Pos.CENTER);
+        
+        btn_Administrador=new Button("Administrador");
+        iniciar.setAlignment(Pos.CENTER);
+        
         //inicio VBox
         cajaGeneral=new VBox();
-        cajaGeneral.getChildren().addAll(titulo,cajaUsuario,cajaContrasena,iniciar);
+        //cajaGeneral.getChildren().addAll(titulo,cajaUsuario,cajaContrasena,btn_Comprador,btn_Vendedor,btn_Administrador);
+        cajaGeneral.getChildren().addAll(titulo,btn_Comprador,btn_Vendedor,btn_Administrador);
         cajaGeneral.setSpacing(20);
         cajaGeneral.setAlignment(Pos.CENTER);
         
-      
-        
+        btn_Comprador.setOnAction((e) -> {
+            Button b = (Button) e.getSource();
+            Scene s = b.getScene();
+            s.setRoot(new Pag_Comprador().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Comprador");
+        });
+        btn_Vendedor.setOnAction((e) -> {
+            Button b = (Button) e.getSource();
+            Scene s = b.getScene();
+            s.setRoot(new Pag_Vendedor().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Vendedor");
+        });
+        btn_Administrador.setOnAction((e) -> {
+            Button b = (Button) e.getSource();
+            Scene s = b.getScene();
+            s.setRoot(new Pag_Admin().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Admin");
+        });
         
     }
     public Pag_Inicio(){
