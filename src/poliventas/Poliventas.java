@@ -9,12 +9,14 @@ import Extra.Validate;
 import PatronDAO.Compra.CompraDAOImpl;
 import PatronDAO.Producto.ProductoDAOImpl;
 import PatronSingleton.Conexion;
+import Vista.Pag_Comprador;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -25,10 +27,27 @@ public class Poliventas extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
-        Scene scene = new Scene(root);
-
+       //Pag_Inicio inicio=new Pag_Inicio();
+       //Pane contenedor2=inicio.getRoot();
+       
+       //Pag_Admin menuAdmin=new Pag_Admin();
+       //Pane contenedor3=menuAdmin.getRoot();
+       
+       //Pag_AdminBuscar menuAdminBusqueda=new Pag_AdminBuscar();
+       //Pag_AdminCompras menuAdminCompra=new Pag_AdminCompras();
+       //Pane contenedor5=menuAdminCompra.getRoot();
+       
+       //Pag_Vendedor menuVendedor=new Pag_Vendedor();  
+       //Pane contenedor6=menuVendedor.getRoot();
+       
+        Pag_Comprador menuComprador=new Pag_Comprador();
+        Pane contenedor7=menuComprador.getRoot();
+        
+        Scene scene = new Scene(contenedor7, 500, 550);
+        
+        stage.setTitle("Menu");
+        //StackPane root= new StackPane();
+        
         stage.setScene(scene);
         stage.show();
     }
@@ -40,19 +59,7 @@ public class Poliventas extends Application {
         Conexion conexion = Conexion.getInstancia();
         conexion.conectar();
 
-        ProductoDAOImpl pdao = new ProductoDAOImpl();
-        CompraDAOImpl cdo= new CompraDAOImpl();
-        System.out.println("validando cadena: " + Validate.normalizeString("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ __$&*@!#+!!-\\{}:;= U.S. Art Supply 5.5\" x 8.5\" Premium Spiral Bound Sketch Pad, Pad of 100-Sheets, 60 Pound (100gsm) (Pack of 2 Pads)"));
-        try {
-            System.out.println("Busqueda sencilla nombre" + pdao.busquedaSencillaNombre("Audifonos".trim()));
-            System.out.println("Busqueda sencilla descripicion" + pdao.busquedaSencillaDescripcion("Tecnologia"));
-            System.out.println("Compras pendientes "+ cdo.readPendientes(201563748,"Compra"));
-            System.out.println("Ventas pendientes "+ cdo.readPendientes(201515424,"Venta"));
-            System.out.println("Mis productos "+ pdao.readMisProductos(201515424));
-            
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        
         launch(args);
         conexion.desconectar();
 

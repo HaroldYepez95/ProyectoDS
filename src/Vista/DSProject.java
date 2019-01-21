@@ -31,8 +31,8 @@ public class DSProject extends Application {
        //Pag_AdminBuscar menuAdminBusqueda=new Pag_AdminBuscar();
       // Pag_AdminCompras menuAdminCompra=new Pag_AdminCompras();
        //Pane contenedor5=menuAdminCompra.getRoot();
-       // Pag_Vendedor menuVendedor=new Pag_Vendedor();
-        
+       
+       // Pag_Vendedor menuVendedor=new Pag_Vendedor();  
        //Pane contenedor6=menuVendedor.getRoot();
        Pag_Comprador menuComprador=new Pag_Comprador();
        Pane contenedor7=menuComprador.getRoot();

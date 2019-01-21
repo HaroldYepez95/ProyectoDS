@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Extra.Validate;
+import PatronDAO.Compra.CompraDAOImpl;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,7 +41,18 @@ public class Pag_vendedorVentas {
             s.setRoot(new Pag_Vendedor().getRoot() );
             ((Stage)s.getWindow()).setTitle("Vendedor");
         });
-
+        btnVentasPendientes.setOnAction((e) -> {
+           CompraDAOImpl cdo= new CompraDAOImpl();
+           System.out.println("validando cadena: " + Validate.normalizeString("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ __$&*@!#+!!-\\{}:;= U.S. Art Supply 5.5\" x 8.5\" Premium Spiral Bound Sketch Pad, Pad of 100-Sheets, 60 Pound (100gsm) (Pack of 2 Pads)"));
+            try {
+               
+                System.out.println("Ventas pendientes "+ cdo.readPendientes(201515424,"Venta"));
+                
+            
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
     }
     public Pag_vendedorVentas(){
          Contenido();
