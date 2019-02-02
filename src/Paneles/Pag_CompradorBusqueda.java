@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Paneles;
 
 import Extra.Validate;
 import PatronDAO.Compra.CompraDAOImpl;
@@ -45,7 +45,7 @@ public class Pag_CompradorBusqueda {
             ((Stage)s.getWindow()).setTitle("Administrador");
         });
         btnSimple.setOnAction((e) -> {   
-            ProductoDAOImpl pdao = new ProductoDAOImpl();
+            /*ProductoDAOImpl pdao = new ProductoDAOImpl();
             CompraDAOImpl cdo= new CompraDAOImpl();
             System.out.println("validando cadena: " + Validate.normalizeString("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ __$&*@!#+!!-\\{}:;= U.S. Art Supply 5.5\" x 8.5\" Premium Spiral Bound Sketch Pad, Pad of 100-Sheets, 60 Pound (100gsm) (Pack of 2 Pads)"));
             try {
@@ -57,7 +57,11 @@ public class Pag_CompradorBusqueda {
             
             } catch (Exception ex) {
                 ex.printStackTrace();
-            }
+            }*/
+            Button b = (Button) e.getSource();
+            Scene s = b.getScene();
+            s.setRoot(new Pag_CompradorBusquedaSimple().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Busqueda Simple");
         });
     }
     public Pag_CompradorBusqueda(){

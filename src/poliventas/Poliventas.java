@@ -9,8 +9,9 @@ import Extra.Validate;
 import PatronDAO.Compra.CompraDAOImpl;
 import PatronDAO.Producto.ProductoDAOImpl;
 import PatronSingleton.Conexion;
-import Vista.Pag_Comprador;
-import Vista.Pag_Inicio;
+
+import Paneles.Pag_Comprador;
+import Paneles.Pag_Inicio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -59,6 +60,9 @@ public class Poliventas extends Application {
     public static void main(String[] args) throws Exception {
         Conexion conexion = Conexion.getInstancia();
         conexion.conectar();
+        
+        
+        
 
         
         launch(args);

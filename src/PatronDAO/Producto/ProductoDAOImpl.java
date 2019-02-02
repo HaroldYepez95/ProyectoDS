@@ -17,6 +17,8 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * 
@@ -30,6 +32,7 @@ public class ProductoDAOImpl implements IProductoDAO {
     private ResultSet rs, rs2;
     private Producto articulo;
     private ArrayList<Producto> articulos;
+    public static ObservableList<Producto> listArticulo = FXCollections.observableArrayList();
 
     @Override
     public void create(Producto producto) throws Exception {
@@ -139,9 +142,11 @@ public class ProductoDAOImpl implements IProductoDAO {
     @Override
     public ArrayList<Producto> busquedaSencillaNombre(String nombreProducto) throws Exception {
         articulos= new ArrayList<>();
+        //ObservableList<Producto> listciudad = FXCollections.observableArrayList();
         cs = connection.prepareCall("{CALL readProductoNombre(?)}");
         cs.setString(1,nombreProducto);
         rs = cs.executeQuery();
+        
   
       
         while (rs.next()) {
@@ -169,6 +174,7 @@ public class ProductoDAOImpl implements IProductoDAO {
             articulo.setFechaIngreso(fechaIngreso.toLocalDate());
             
             articulos.add(articulo);
+            listArticulo.add(articulo);
         }
         cs.close();
         return articulos;
@@ -215,6 +221,15 @@ public class ProductoDAOImpl implements IProductoDAO {
         return articulos;
         
     }
+
+    public ArrayList<Producto> getArticulos() {
+        return articulos;
+    }
+
+    public static ObservableList<Producto> getListarticulo() {
+        return listArticulo;
+    }
+    
 
 
    

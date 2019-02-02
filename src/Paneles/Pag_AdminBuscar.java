@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Paneles;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,22 +17,22 @@ import javafx.stage.Stage;
  *
  * @author Tonny
  */
-public class Pag_AdminCompras {
+public class Pag_AdminBuscar {
     private Label titulo;
     private VBox contenedor;
-    private Button btnPendiente;
-    private Button btnAnuladas;
-    private Button btnExitosas;
+    private Button btnSimple;
+    private Button btnAvanzada;
+    
     private Button btnAtras;
+    
     public void Contenido(){
-        titulo=new Label("Compras");
-        btnPendiente=new Button("Pendientes a Entregar");
-        btnAnuladas=new Button("Anuladas");
-        btnExitosas=new Button("Exitosas");
+        titulo=new Label("Busqueda");
+        btnSimple=new Button("Simple");
+        btnAvanzada=new Button("Avanzada");
         btnAtras=new Button("Atras");
         
         contenedor=new VBox();
-        contenedor.getChildren().addAll(titulo,btnPendiente,btnAnuladas,btnExitosas,btnAtras);
+        contenedor.getChildren().addAll(titulo,btnSimple,btnAvanzada,btnAtras);
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(20);
         btnAtras.setOnAction((e) -> {
@@ -43,7 +43,7 @@ public class Pag_AdminCompras {
         });
 
     }
-    public Pag_AdminCompras(){
+    public Pag_AdminBuscar(){
          Contenido();
     }
     public Pane getRoot(){
