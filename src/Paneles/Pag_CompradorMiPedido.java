@@ -7,6 +7,8 @@ package Paneles;
 
 import Extra.Validate;
 import PatronDAO.Compra.CompraDAOImpl;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,16 +47,16 @@ public class Pag_CompradorMiPedido {
         });
         btnPendiente.setOnAction((e) -> {
             CompraDAOImpl cdo= new CompraDAOImpl();
-            System.out.println("validando cadena: " + Validate.normalizeString("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ __$&*@!#+!!-\\{}:;= U.S. Art Supply 5.5\" x 8.5\" Premium Spiral Bound Sketch Pad, Pad of 100-Sheets, 60 Pound (100gsm) (Pack of 2 Pads)"));
             try {
-                
-                System.out.println("Compras pendientes "+ cdo.readPendientes(201563748,"Compra"));
-                
-                
-            
+                cdo.read();
             } catch (Exception ex) {
-                ex.printStackTrace();
+                Logger.getLogger(Pag_CompradorMiPedido.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Button b = (Button) e.getSource();
+            Scene s = b.getScene();
+            s.setRoot(new Pag_ComprasPendientes().getRoot() );
+            ((Stage)s.getWindow()).setTitle("Compras Pendientes");
+            
         });
 }
     public Pag_CompradorMiPedido(){

@@ -5,6 +5,7 @@
  */
 package PatronDAO.Compra;
 
+import ClasesAuxiliares.Producto;
 import FamiliaOperacion.Compra;
 import PatronSingleton.Conexion;
 import java.sql.CallableStatement;
@@ -13,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,6 +30,7 @@ public class CompraDAOImpl implements ICompraDAO {
     private ResultSet rs, rs2;
     private Compra compra;
     private ArrayList<Compra> compras;
+    public static ObservableList<Compra> listPendientes = FXCollections.observableArrayList();
 
     @Override
     public void create(Compra compra) throws Exception {
@@ -76,6 +80,7 @@ public class CompraDAOImpl implements ICompraDAO {
                 compra.setIdVendedor(idComprador);
             }
             compras.add(compra);
+            listPendientes.add(compra);
 
         }
         cs.close();

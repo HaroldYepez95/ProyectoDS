@@ -33,6 +33,8 @@ public class ProductoDAOImpl implements IProductoDAO {
     private Producto articulo;
     private ArrayList<Producto> articulos;
     public static ObservableList<Producto> listArticulo = FXCollections.observableArrayList();
+    
+    public static ObservableList<Producto> listMasBuscado = FXCollections.observableArrayList();
 
     @Override
     public void create(Producto producto) throws Exception {
@@ -70,10 +72,11 @@ public class ProductoDAOImpl implements IProductoDAO {
     }
 
     @Override
-    public ArrayList<Producto> readMasBuscados() throws Exception {
+    public ObservableList<Producto> readMasBuscados() throws Exception {
         cs = connection.prepareCall("{CALL readProductosMasBuscados()}");
         rs = cs.executeQuery();
-        articulos=new ArrayList<>();
+        //articulos=new ArrayList<>();
+        listArticulo = FXCollections.observableArrayList();
         while (rs.next()) {
             articulo=new Producto();
             int cantidadDisponible=rs.getInt("CantidadDisponible"),
@@ -99,10 +102,11 @@ public class ProductoDAOImpl implements IProductoDAO {
             articulo.setCalificacionPromedioVendedor(calificacionPromedioVendedor);
             
  
-            articulos.add(articulo);
+            listArticulo.add(articulo);
+            listMasBuscado.add(articulo);
         }
         cs.close();
-        return articulos;
+        return listArticulo;
     }
 
     @Override
@@ -134,6 +138,7 @@ public class ProductoDAOImpl implements IProductoDAO {
             articulo.setFechaIngreso(fechaIngreso.toLocalDate());
             
             articulos.add(articulo);
+            
         }
         cs.close();
         return articulos;

@@ -5,6 +5,7 @@
  */
 package Paneles;
 
+import PatronSingleton.Conexion;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -48,8 +49,10 @@ public class DSProject extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         launch(args);
+        Conexion conexion = Conexion.getInstancia();
+        conexion.conectar();
     }
     
 }

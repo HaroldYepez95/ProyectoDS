@@ -24,44 +24,38 @@ import javafx.stage.Stage;
  *
  * @author Tonny
  */
-// nombre, categoría, precio, tiempo máximo de entrega y
-//calificación del producto y del vendedor 
-public class Pag_CompradorBusquedaSimple {
-     private Label lbtitle;
-     private Button btnSimple;
-     private Button btnCancelar;
-     private TextField txtsimple;
-     private HBox hb1;
-     private VBox vb1;
-     private TableView<Producto> tablaBusquedaSimple;
-     private TableColumn<Producto,String> codigo;
-     private TableColumn<Producto,String> categoria;
-     private TableColumn<Producto,String> nombre;
-     private TableColumn<Producto,String> precio;
-    public Pag_CompradorBusquedaSimple(){
-       tablaBusquedaSimple=new TableView();
-       tablaBusquedaSimple.setEditable(true);
-       tablaBusquedaSimple.autosize();
-       txtsimple=new TextField();
+public class Pag_ComprasPendientes {
+    private Label lbtitle;
+    private TableView tablaCompras;
+    private TableColumn<Producto,String> nombre;
+    private TableColumn<Producto,String> codigo;
+    private TableColumn<Producto,String> categoria;
+     
+    private TableColumn<Producto,String> precio;;
+    private Button btnCancelar;
+    private HBox hb1;
+    private VBox vb1;
+    private Button btngenerar;
+    
+    public Pag_ComprasPendientes(){
+       tablaCompras=new TableView();
+       tablaCompras.setEditable(true);
+       tablaCompras.autosize();
+       
         
        setColumnas();
     }
     private void setColumnas(){
-        lbtitle =new Label("Busqueda Simple");
-        btnSimple=new Button("Busqueda");
-        btnSimple.setOnAction(e -> {
-           
-        });
+        lbtitle =new Label("Compras Pendientes");
         btnCancelar=new Button("cancelar");
         btnCancelar.setOnAction(e -> {
             Button b = (Button) e.getSource();
             Scene s = b.getScene();
             ((Stage) s.getWindow()).setTitle("Info Pet");
-            s.setRoot(new Pag_CompradorBusqueda().getRoot());
+            s.setRoot(new Pag_CompradorMiPedido().getRoot());
 
         });
-       
-        
+        btngenerar=new Button("Generar PDF");
         codigo=new TableColumn("IdProducto");
         codigo.setMinWidth(100);
         codigo.setCellValueFactory(new PropertyValueFactory<>("idProducto"));
@@ -76,20 +70,22 @@ public class Pag_CompradorBusquedaSimple {
         precio.setCellValueFactory(new PropertyValueFactory<>("precioUnitario"));
         
         
-        tablaBusquedaSimple.getColumns().addAll(codigo,categoria,nombre,precio);
-        tablaBusquedaSimple.setItems(ProductoDAOImpl.getListarticulo());
+        tablaCompras.getColumns().addAll(codigo,categoria,nombre,precio);
+        tablaCompras.setItems(ProductoDAOImpl.listMasBuscado);
         hb1=new HBox();
-        hb1.getChildren().addAll(btnSimple, txtsimple);
+        hb1.getChildren().addAll(btnCancelar, btngenerar);
         hb1.setAlignment(Pos.CENTER);
         hb1.setSpacing(20);
         vb1=new VBox();
-        vb1.getChildren().addAll(lbtitle,hb1,tablaBusquedaSimple,btnCancelar);
+        vb1.getChildren().addAll(lbtitle,tablaCompras,hb1);
         vb1.setAlignment(Pos.CENTER);
         vb1.setSpacing(20);
      
-    
+        
     }
     public Pane getRoot(){
         return vb1;
     }
+            
+            
 }

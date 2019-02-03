@@ -7,6 +7,7 @@ package PatronDAO.Producto;
 
 import ClasesAuxiliares.Producto;
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -18,7 +19,7 @@ public interface IProductoDAO {
 
     public ArrayList<Producto> read() throws Exception;
 
-    public ArrayList<Producto> readMasBuscados() throws Exception;
+    public ObservableList <Producto> readMasBuscados() throws Exception;
     
     public ArrayList<Producto> readMisProductos(int matricula) throws Exception;
     

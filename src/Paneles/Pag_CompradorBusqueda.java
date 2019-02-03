@@ -58,6 +58,7 @@ public class Pag_CompradorBusqueda {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }*/
+            
             Button b = (Button) e.getSource();
             Scene s = b.getScene();
             s.setRoot(new Pag_CompradorBusquedaSimple().getRoot() );
