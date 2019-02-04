@@ -34,13 +34,14 @@ public class Validate {
         tablas.put("Estudiantes", "Matricula");
         tablas.put("Compradores", "idComprador");
         tablas.put("Vendedores", "idVendedor");
+        tablas.put("Administradores", "idAdministrador");
         tablas.put("CalificacionesVendedores", "idCalificacionVendedor");
         tablas.put("Operaciones", "idOperacion");
         tablas.put("CalificacionesProductos", "idCalificacionProducto");
         tablas.put("Pagos", "idPago");
         tablas.put("PagosEfectivo", "idPagoEfectivo");
         tablas.put("ComprasSaldos", "idCompraSaldo");
-        tablas.put("ComprasVentas", "idComprasVentas");
+        tablas.put("ComprasVentas", "idCompraVenta");
         tablas.put("ComprasVentasProductos", "idCompraVentaProducto");
         tablas.put("Entregas", "idEntrega");
         tablas.put("Productos", "idProducto");
@@ -62,45 +63,23 @@ public class Validate {
     }
 
     public static boolean validarCadenaBusquedaSencilla(String cadena) {
-        boolean condicion1 = (cadena.length() - cadena.replaceAll(" ", "").length()) < 3,
+        boolean condicion1 = (cadena.length() - cadena.replaceAll(" ", "").length()) <= 3,
                 condicion2 = !(cadena.isEmpty());
         if (condicion1 && condicion2) {
-            String normalizeString = normalizeString(cadena);
-
-        }
-
-        return true;
-    }
-
-    public boolean esUsuarioEstudiante(String usuario, String clave) throws Exception {
-        int matricula;
-
-        conexion.conectar();
-        cs = connection.prepareCall("{CALL verificarEstudiante(?, ?)}");
-        cs.setString(1, usuario);
-        cs.setString(2, clave);
-        rs = cs.executeQuery();
-        rs.next();
-        matricula = rs.getInt("Matricula");
-        cs.close();
-
-        if (matricula == 0) {
-            return false;
-        } else {
             return true;
+
         }
+        return false;
 
     }
 
     public String ultimoId(String tabla) throws Exception {
-        String value = "";
-
-        conexion.conectar();
         String query = "SELECT MAX(" + tablas.get(tabla) + ") AS ultimo FROM " + tabla;
         ps = connection.prepareStatement(query);
         rs = ps.executeQuery();
         rs.next();
-        value = String.valueOf(rs.getObject("ultimo"));
+        String value = String.valueOf(rs.getObject("ultimo"));
+        rs.close();
         ps.close();
 
         if (value.equals("null")) {
@@ -110,50 +89,25 @@ public class Validate {
         }
 
     }
-    
+
     //Permite mostrar el nombre y el rol cuando inicia sesion un estudiante, sin tener que crear una instancia de un estudiante
-    public ResultSet obtenerNombreRolEstudiante(String matricula) throws Exception {
-
-        cs = connection.prepareCall("{CALL obtenerNroHistoriaCedula(?)}");
-        cs.setString(1, matricula);
-        rs = cs.executeQuery();
-        rs.next();
-        cs.close();
-
-        if (rs == null) {
-            throw new Exception("No existe estudiante con esa matricula");
-        } else {
-            return rs;
-        }
-
+    /* public ResultSet obtenerNombreRolEstudiante(String matricula) throws Exception {
+    
+    cs = connection.prepareCall("{CALL obtenerNroHistoriaCedula(?)}");
+    cs.setString(1, matricula);
+    rs = cs.executeQuery();
+    rs.next();
+    cs.close();
+    
+    if (rs == null) {
+    throw new Exception("No existe estudiante con esa matricula");
+    } else {
+    return rs;
     }
-
-
-    public int obtenerNroHistoriaNombre(String nombre) throws Exception {
-
-        cs = connection.prepareCall("{CALL obtenerNroHistoriaNombre(?)}");
-        cs.setString(1, nombre);
-        rs = cs.executeQuery();
-
-        rs.next();
-        int nroHistoria = rs.getInt("nroHistoria");
-        cs.close();
-
-        if (nroHistoria == 0) {
-            throw new Exception("No existe persona con ese nombre");
-        } else {
-            return nroHistoria;
-        }
-
-    }
-
- 
+    
+    }*/
     public HashMap<String, String> getTablas() {
         return tablas;
-    }
-
-    public void setTablas(HashMap<String, String> tablas) {
-        this.tablas = tablas;
     }
 
 }

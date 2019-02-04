@@ -5,19 +5,53 @@
  */
 package PatronStrategy;
 
+import FamiliaOperacion.Pago;
+
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
-public class PagoEfectivo implements IPago{
+public class PagoEfectivo extends Pago {
+
     private int idPagoEfectivo;
     private double valorEntregado, cambio;
-    
-    @Override
-    public void pagar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public PagoEfectivo() {
+        setTipo("PagoEfectivo");
     }
-    
-    
-    
+
+    public int getIdPagoEfectivo() {
+        return idPagoEfectivo;
+    }
+
+    public void setIdPagoEfectivo(int idPagoEfectivo) {
+        this.idPagoEfectivo = idPagoEfectivo;
+    }
+
+    public double getValorEntregado() {
+        return valorEntregado;
+    }
+
+    public void setValorEntregado(double valorEntregado) {
+        this.valorEntregado = valorEntregado;
+    }
+
+    public double getCambio() {
+        return cambio;
+    }
+
+    public void setCambio(double cambio) {
+        this.cambio = cambio;
+    }
+
+    @Override
+    public void pagar() throws Exception {
+        pdao.create(this);
+    }
+
+    @Override
+    public String toString() {
+        return "PagoEfectivo{" + "idPagoEfectivo=" + idPagoEfectivo + ", valorEntregado=" + valorEntregado + ", cambio=" + cambio + '}';
+    }
+
 }

@@ -5,15 +5,26 @@
  */
 package PatronStrategy;
 
+import FamiliaOperacion.Pago;
+
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
-public class PagoElectronico implements IPago{
+public class PagoElectronico extends Pago {
+
+    public PagoElectronico() {
+        setTipo("PagoElectronico");
+    }
 
     @Override
-    public void pagar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pagar() throws Exception {
+        pdao.create(this);
     }
-    
+
+    @Override
+    public String toString() {
+        return "PagoElectronico{" + "idPago=" + idPago + ", idPay=" + idPay + ", idPurchase=" + idPurchase + ", valorAbonado=" + valorAbonado + '}';
+    }
+
 }

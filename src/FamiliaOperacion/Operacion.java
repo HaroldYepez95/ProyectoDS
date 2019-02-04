@@ -5,17 +5,24 @@
  */
 package FamiliaOperacion;
 
+import FamiliaPersona.Comprador;
+import FamiliaPersona.Vendedor;
+import PatronStrategy.PagoEfectivo;
+import PatronStrategy.PagoElectronico;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
 public abstract class Operacion {
 
-    protected int idOperacion, idVendedor, idComprador ;
+    protected int idOperacion, idVendedor, idComprador;
     protected LocalDateTime fechaHora;
-
+    protected String tipo;
+    private static Map<String, Operacion> mapaTipoOperacionInstancia = new HashMap<>();
 
     public int getIdOperacion() {
         return idOperacion;
@@ -48,6 +55,22 @@ public abstract class Operacion {
     public void setIdVendedor(int idVendedor) {
         this.idVendedor = idVendedor;
     }
-    
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public static Map<String, Operacion> getMapaTipoOperacionInstancia() {
+        mapaTipoOperacionInstancia.put("Compra", new Compra());
+        mapaTipoOperacionInstancia.put("Entrega", new Entrega());
+        mapaTipoOperacionInstancia.put("PagoElectronico", new PagoElectronico());
+        mapaTipoOperacionInstancia.put("PagoEfectivo", new PagoEfectivo());
+
+        return mapaTipoOperacionInstancia;
+    }
 
 }

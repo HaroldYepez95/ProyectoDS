@@ -77,7 +77,7 @@ public class Pag_CompradorBusquedaSimple {
         
         
         tablaBusquedaSimple.getColumns().addAll(codigo,categoria,nombre,precio);
-        tablaBusquedaSimple.setItems(ProductoDAOImpl.getListarticulo());
+        tablaBusquedaSimple.setItems(ProductoDAOImpl.BusquedaSencillaN);
         hb1=new HBox();
         hb1.getChildren().addAll(btnSimple, txtsimple);
         hb1.setAlignment(Pos.CENTER);

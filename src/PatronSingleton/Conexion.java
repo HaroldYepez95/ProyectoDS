@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 /**
  *
  * @author Luis A. Sarango-Parrales
@@ -19,8 +18,8 @@ public class Conexion {
     private static Conexion instancia;
     private Connection connection;
     private final String USER = "root",
-            PWD = "Programming0",
-            URL = "jdbc:mysql://localhost:3306/PoliventasDB?autoReconnect=true&useSSL=false";
+            PWD = "espol1234",
+            URL = "jdbc:mysql://127.0.0.1:3306/poliventasdb?useUnicode=true&useTimezone=true&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false";
 
     private Conexion() {
     }
@@ -34,7 +33,11 @@ public class Conexion {
 
     public void conectar() throws Exception {
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Error al registrar el driver de MySQL: " + ex);
+        }
         connection = DriverManager.getConnection(URL, USER, PWD);
         System.out.println("Conexión MySql exitosa");
     }

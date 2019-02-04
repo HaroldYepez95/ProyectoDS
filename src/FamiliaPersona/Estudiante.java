@@ -5,17 +5,22 @@
  */
 package FamiliaPersona;
 
-import FamiliaOperacion.Compra;
-import java.util.ArrayList;
+import ClasesAuxiliares.Producto;
+import PatronDAO.Producto.ProductoDAOImpl;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
-public class Estudiante extends Persona {
+public abstract class Estudiante extends Persona {
 
     protected int matricula;
     protected String usuario, contraseña, rol;
+    protected ProductoDAOImpl productoDao = new ProductoDAOImpl();
+    private static Map<String, Estudiante> mapaRol = new HashMap<>();
 
     public int getMatricula() {
         return matricula;
@@ -41,6 +46,21 @@ public class Estudiante extends Persona {
         this.contraseña = contraseña;
     }
 
+    public static Map<String, Estudiante> getMapaRol() {
+        mapaRol.put("Comprador", new Comprador());
+        mapaRol.put("Vendedor", new Vendedor());
+        mapaRol.put("Administrador", new Administrador());
+        return mapaRol;
+    }
+
+    public List<Producto> realizarBusquedaSencillaNombre(String nombre) throws Exception {
+        return productoDao.busquedaSencillaNombre(nombre);
+    }
+
+    public List<Producto> realizarBusquedaSencillaDescripcion(String descripcion) throws Exception {
+        return productoDao.busquedaSencillaDescripcion(descripcion);
+    }
+
     public String getRol() {
         return rol;
     }
@@ -49,29 +69,10 @@ public class Estudiante extends Persona {
         this.rol = rol;
     }
 
-    public void iniciarSesion() {
+    @Override
+    public String toString() {
+        return "Estudiante{" + "matricula=" + matricula + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + '}';
+    }
+    
 
-    }
-
-    public void cerrarSesion() {
-
-    }
-    
-    public ArrayList<Compra> obtenerComprasPendientes(){
-        return null;
-    }
-    
-    public ArrayList<Compra> obtenerComprasExitosas(){
-        return null;
-    }
-    
-    public ArrayList<Compra> obtenerComprasAnuladas(){
-        return null;
-    }
-    
-    public ArrayList<Compra> obtenerResumenCompras(){
-        return null;
-    }
-    
-    
 }

@@ -6,19 +6,26 @@
 package FamiliaPersona;
 
 import ClasesAuxiliares.CompraSaldo;
-import ClasesAuxiliares.IBuscable;
-import ClasesAuxiliares.Producto;
-import java.util.ArrayList;
+import FamiliaOperacion.Compra;
+import FamiliaOperacion.Pago;
+import PatronDAO.Compra.CompraDAOImpl;
+import java.util.List;
 
 /**
  *
  * @author Luis A. Sarango-Parrales
  */
-public class Comprador implements IBuscable {
+public class Comprador extends Estudiante {
+
     protected int idComprador;
     protected double saldoDisponible;
     protected CompraSaldo compraSaldo;
-    protected ArrayList<Producto> misProductos;
+    protected CompraDAOImpl compraDao = new CompraDAOImpl();
+    protected Compra compra;
+
+    public Comprador() {
+        setRol("Comprador");
+    }
 
     public int getIdComprador() {
         return idComprador;
@@ -44,24 +51,27 @@ public class Comprador implements IBuscable {
         this.compraSaldo = compraSaldo;
     }
 
-    public ArrayList<Producto> getMisProductos() {
-        return misProductos;
+    public Compra getCompra() {
+        return compra;
     }
 
-    public void setMisProductos(ArrayList<Producto> misProductos) {
-        this.misProductos = misProductos;
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public void pagarNuevaCompra(Pago pay) throws Exception {
+        compra.setPago(pay);
+        compra.registrarCompra();
+        compra.setEstado("Pendiente");
+    }
+
+    public List<Compra> obtenerComprasPendientes() throws Exception {
+        return compraDao.readPendientes(this.matricula, "Compra");
     }
 
     @Override
-    public ArrayList<Producto> realizarBusquedaSencilla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        return "Comprador{" + "cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", telefonoActual=" + telefonoActual + ", tieneWhatsapp=" + tieneWhatsapp + ", correos=" + correos + ", domicilios=" + domicilios + ", telefonosSecundarios=" + telefonosSecundarios + ", matricula=" + matricula + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + "idComprador=" + idComprador + ", saldoDisponible=" + saldoDisponible + '}';
     }
 
-    @Override
-    public ArrayList<Producto> realizarBusquedaAvanzada() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
 }

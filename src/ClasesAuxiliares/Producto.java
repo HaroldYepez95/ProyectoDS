@@ -6,7 +6,6 @@
 package ClasesAuxiliares;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 /**
  *
@@ -14,11 +13,12 @@ import java.time.LocalTime;
  */
 public class Producto {
 
-    private int idProducto, idProvider, calificacionPromedioProducto, calificacionPromedioVendedor, nroBusquedas, cantidadDisponible;
-    private String nombre, descripcion, categoria;
+    private int idProducto;
+    private int idProvider;
+    private int calificacionPromedio;
+    private int nroBusquedas;
     private LocalDate fechaIngreso;
-    private double precioUnitario;
-    private LocalTime tiempoMaxEntrega;
+    private InfoProducto infoProducto;
 
     public int getIdProducto() {
         return idProducto;
@@ -36,28 +36,20 @@ public class Producto {
         this.nroBusquedas = nroBusquedas;
     }
 
-    public int getCantidadDisponible() {
-        return cantidadDisponible;
+    public int getIdProvider() {
+        return idProvider;
     }
 
-    public void setCantidadDisponible(int cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void setIdProvider(int idProvider) {
+        this.idProvider = idProvider;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getCalificacionPromedio() {
+        return calificacionPromedio;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setCalificacionPromedio(int calificacionPromedio) {
+        this.calificacionPromedio = calificacionPromedio;
     }
 
     public LocalDate getFechaIngreso() {
@@ -68,57 +60,18 @@ public class Producto {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
+    public InfoProducto getInfoProducto() {
+        return infoProducto;
     }
 
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public LocalTime getTiempoMaxEntrega() {
-        return tiempoMaxEntrega;
-    }
-
-    public void setTiempoMaxEntrega(LocalTime tiempoMaxEntrega) {
-        this.tiempoMaxEntrega = tiempoMaxEntrega;
-    }
-
-    public int getCalificacionPromedioProducto() {
-        return calificacionPromedioProducto;
-    }
-
-    public void setCalificacionPromedioProducto(int calificacionPromedioProducto) {
-        this.calificacionPromedioProducto = calificacionPromedioProducto;
-    }
-
-    public int getCalificacionPromedioVendedor() {
-        return calificacionPromedioVendedor;
-    }
-
-    public void setCalificacionPromedioVendedor(int calificacionPromedioVendedor) {
-        this.calificacionPromedioVendedor = calificacionPromedioVendedor;
-    }
-
-    public int getIdProvider() {
-        return idProvider;
-    }
-
-    public void setIdProvider(int idProvider) {
-        this.idProvider = idProvider;
+    public void setInfoProducto(InfoProducto infoProducto) {
+        this.infoProducto = infoProducto;
     }
 
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", idProvider=" + idProvider + ", calificacionPromedioProducto=" + calificacionPromedioProducto + ", calificacionPromedioVendedor=" + calificacionPromedioVendedor + ", nroBusquedas=" + nroBusquedas + ", cantidadDisponible=" + cantidadDisponible + ", nombre=" + nombre + ", descripcion=" + descripcion + ", categoria=" + categoria + ", fechaIngreso=" + fechaIngreso + ", precioUnitario=" + precioUnitario + ", tiempoMaxEntrega=" + tiempoMaxEntrega + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", idProvider=" + idProvider + ", calificacionPromedio=" + calificacionPromedio + ", nroBusquedas=" + nroBusquedas + ", fechaIngreso=" + fechaIngreso + ", infoProducto=" + infoProducto + '}';
     }
 
+   
 }

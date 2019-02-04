@@ -6,8 +6,8 @@
 package PatronDAO.Producto;
 
 import ClasesAuxiliares.Producto;
-import java.util.ArrayList;
-import javafx.collections.ObservableList;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,19 +17,16 @@ public interface IProductoDAO {
 
     public void create(Producto producto) throws Exception;
 
-    public ArrayList<Producto> read() throws Exception;
+    public List<Producto> readMasBuscados() throws Exception;
 
-    public ObservableList <Producto> readMasBuscados() throws Exception;
-    
-    public ArrayList<Producto> readMisProductos(int matricula) throws Exception;
-    
-    
-    public ArrayList<Producto> busquedaSencillaNombre(String nombreProducto) throws Exception;
-    
-    public ArrayList<Producto> busquedaSencillaDescripcion(String descripcionProducto) throws Exception;
-    
-    public void update() throws Exception;
+    public List<Producto> readMisProductos(int matricula) throws Exception;
 
-    public void delete() throws Exception;
+    public List<Producto> busquedaSencillaNombre(String nombreProducto) throws Exception;
+
+    public List<Producto> busquedaSencillaDescripcion(String descripcionProducto) throws Exception;
+
+    public void update(Map<String, Object> nuevosValores, int idProducto) throws Exception;
+
+    public void delete(int idProducto) throws Exception;
 
 }

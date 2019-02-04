@@ -5,8 +5,8 @@
  */
 package PatronDAO.Estudiante;
 
-import ClasesAuxiliares.Producto;
-import java.util.ArrayList;
+import FamiliaPersona.Estudiante;
+import java.util.Map;
 
 /**
  *
@@ -14,12 +14,12 @@ import java.util.ArrayList;
  */
 public interface IEstudianteDAO {
 
-    public void create(Producto producto) throws Exception;
+    public void create(Estudiante estudiante) throws Exception;
 
-    public ArrayList<Producto> read() throws Exception;
+    public Estudiante read(int matricula) throws Exception;
 
-    public void update() throws Exception;
+    public void update(Map<String,Object> nuevosValores, int matricula) throws Exception;
 
-    public void delete() throws Exception;
+    public void delete(int matricula) throws Exception;
 
 }

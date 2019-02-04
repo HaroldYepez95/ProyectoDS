@@ -65,7 +65,7 @@ public class Pag_ArticulosMasBuscado {private Label lbtitle;
         
         tablaArticulos.getColumns().addAll(nombre,precio);
         
-        tablaArticulos.setItems(ProductoDAOImpl.listMasBuscado);
+        tablaArticulos.setItems(ProductoDAOImpl.MasBuscado);
         hb1=new HBox();
         hb1.getChildren().addAll(btnCancelar);
         hb1.setAlignment(Pos.CENTER);

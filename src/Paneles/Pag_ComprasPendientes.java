@@ -6,6 +6,7 @@
 package Paneles;
 
 import ClasesAuxiliares.Producto;
+import PatronDAO.Compra.CompraDAOImpl;
 import PatronDAO.Producto.ProductoDAOImpl;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -71,7 +72,7 @@ public class Pag_ComprasPendientes {
         
         
         tablaCompras.getColumns().addAll(codigo,categoria,nombre,precio);
-        tablaCompras.setItems(ProductoDAOImpl.listMasBuscado);
+        tablaCompras.setItems(CompraDAOImpl.CompraPendiente);
         hb1=new HBox();
         hb1.getChildren().addAll(btnCancelar, btngenerar);
         hb1.setAlignment(Pos.CENTER);

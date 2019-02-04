@@ -5,14 +5,22 @@
  */
 package FamiliaOperacion;
 
+import ClasesAuxiliares.EntregaProducto;
+import java.util.List;
+
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
 public class Entrega extends Operacion {
 
-    private int idEntrega;
+    private int idEntrega, idPedido;
     private String localizacionQuiosco, observacion;
+    private List<EntregaProducto> entregaProductos;
+
+    public Entrega() {
+        setTipo("Entrega");
+    }
 
     public int getIdEntrega() {
         return idEntrega;
@@ -36,6 +44,27 @@ public class Entrega extends Operacion {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public List<EntregaProducto> getEntregaProductos() {
+        return entregaProductos;
+    }
+
+    public void setEntregaProductos(List<EntregaProducto> entregaProductos) {
+        this.entregaProductos = entregaProductos;
+    }
+
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrega{" + "idEntrega=" + idEntrega + ", idPedido=" + idPedido + ", localizacionQuiosco=" + localizacionQuiosco + ", observacion=" + observacion + ", entregaProductos=" + entregaProductos + '}';
     }
 
 }

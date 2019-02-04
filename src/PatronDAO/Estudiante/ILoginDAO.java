@@ -11,6 +11,6 @@ package PatronDAO.Estudiante;
  */
 public interface ILoginDAO {
 
-    public boolean authenticarEstudiante(String usuario, String pwd);
+    public boolean authenticarEstudiante(String usuario, String pwd) throws Exception;
 
 }

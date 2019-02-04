@@ -46,12 +46,7 @@ public class Pag_CompradorMiPedido {
             ((Stage)s.getWindow()).setTitle("Comprador");
         });
         btnPendiente.setOnAction((e) -> {
-            CompraDAOImpl cdo= new CompraDAOImpl();
-            try {
-                cdo.read();
-            } catch (Exception ex) {
-                Logger.getLogger(Pag_CompradorMiPedido.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
             Button b = (Button) e.getSource();
             Scene s = b.getScene();
             s.setRoot(new Pag_ComprasPendientes().getRoot() );

@@ -5,17 +5,17 @@
  */
 package FamiliaPersona;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author Estudiante
+ * @author Luis A. Sarango-Parrales
  */
 public abstract class Persona {
 
     protected String cedula, nombres, apellidos, telefonoActual;
     protected boolean tieneWhatsapp;
-    protected ArrayList<String> correos, domicilios, telefonosSecundarios;
+    protected List<String> correos, domicilios, telefonosSecundarios;
 
     public String getCedula() {
         return cedula;
@@ -57,27 +57,27 @@ public abstract class Persona {
         this.tieneWhatsapp = tieneWhatsapp;
     }
 
-    public ArrayList<String> getCorreos() {
+    public List<String> getCorreos() {
         return correos;
     }
 
-    public void setCorreos(ArrayList<String> correos) {
+    public void setCorreos(List<String> correos) {
         this.correos = correos;
     }
 
-    public ArrayList<String> getDomicilios() {
+    public List<String> getDomicilios() {
         return domicilios;
     }
 
-    public void setDomicilios(ArrayList<String> domicilios) {
+    public void setDomicilios(List<String> domicilios) {
         this.domicilios = domicilios;
     }
 
-    public ArrayList<String> getTelefonosSecundarios() {
+    public List<String> getTelefonosSecundarios() {
         return telefonosSecundarios;
     }
 
-    public void setTelefonosSecundarios(ArrayList<String> telefonosSecundarios) {
+    public void setTelefonosSecundarios(List<String> telefonosSecundarios) {
         this.telefonosSecundarios = telefonosSecundarios;
     }
 
