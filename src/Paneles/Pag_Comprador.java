@@ -31,6 +31,7 @@ public class Pag_Comprador {
     private Button btnCerrar;
        public void Contenido(){
         lbtitulo=new Label("Comprador");
+        lbtitulo.setStyle("-fx-font-family: \"Arial Black\";"+"-fx-font-size: 25px;"+"-fx-text-fill: white;"+"-fx-font-weight: bold;"+"-fx-background-color:#000000,linear-gradient(#7ebcea, #2f4b8f),linear-gradient(#426ab7, #263e75),linear-gradient(#395cab, #223768);"+"-fx-background-insets: 0,1,2,3;"+"-fx-padding: 12 30 12 30;");
         btnMiPedido=new Button("Mis Pedidos");
         btnBusqueda=new Button("Busqueda");
         btnArticulo_Buscado=new Button("Articulos mas Buscados");

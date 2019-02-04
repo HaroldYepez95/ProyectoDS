@@ -39,22 +39,20 @@ import javafx.stage.Stage;
 public class Poliventas extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Vistas/Main.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage)  {
+        
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         try {
              Conexion conexion = Conexion.getInstancia();
              conexion.conectar();
+             ProductoDAOImpl pdao = new ProductoDAOImpl();
+             pdao.busquedaSencillaNombre("tecnologia");
+             System.out.println( ProductoDAOImpl.BusquedaSencillaN);
              
         
         

@@ -3,8 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_Admin.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_VendedorMisProductos.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_CompradorBusquedaSimple.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/poliventas/Poliventas.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_AdminBuscar.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_Inicio.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_ComprasPendientes.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_Comprador.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_ArticulosMasBuscado.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_Vendedor.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_CompradorMiPedido.java</file>
             <file>file:/C:/Users/Tonny/Documents/Poliventas/src/PatronDAO/Producto/ProductoDAOImpl.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_Admin.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_CompradorBusqueda.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_vendedorVentas.java</file>
+            <file>file:/C:/Users/Tonny/Documents/Poliventas/src/Paneles/Pag_AdminCompras.java</file>
         </group>
     </open-files>
 </project-private>
